@@ -28,15 +28,17 @@ class vehiclelistModel extends Model
 		*
 		*@var array
 		*/
-		protected $fillable = [
-					vin,
-					brand-model,
-					body_style,
-					color,
-					price,
-                    stock,
-                    engine,
-                    transmission,
-					
-		];
-        }
+		protected $fillable = 
+    [   
+        'vin',
+        'brand-model',
+        'body_style',
+        'color',
+        'price',
+        'stock',
+     	'engine',
+        'transmission',
+
+    
+    ];
+}
