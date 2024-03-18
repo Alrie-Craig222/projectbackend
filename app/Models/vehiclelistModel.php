@@ -22,6 +22,7 @@ class vehiclelistModel extends Model
 		*@var string
 		*/
 		protected $primaryKey = 'vin';
+		public $incrementing = false;
 
 		/**
 		*The attributes that are mass assignable

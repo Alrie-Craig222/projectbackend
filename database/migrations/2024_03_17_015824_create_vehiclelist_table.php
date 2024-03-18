@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vehiclelist', function (Blueprint $table) {
-            $table->string('vin');
+            $table->string('vin')->primary();
             $table->string('brand-model');
             $table->string('body_style');
             $table->string('color');
