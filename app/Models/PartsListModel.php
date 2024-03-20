@@ -5,23 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class vehiclelistModel extends Model
+class PartsListModel extends Model
 {
     use HasFactory;
 
-    /**
+     /**
 		*The table associated with the model
 		*
 		*@var string
 		*/
-		protected $table = 'vehiclelist';
+		protected $table = 'partslist';
 		
 		/**
 		*The primary key associated with the model
 		*
 		*@var string
 		*/
-		protected $primaryKey = 'vin';
+		protected $primaryKey = 'part_id';
 		public $incrementing = false;
 
 		/**
@@ -31,14 +31,13 @@ class vehiclelistModel extends Model
 		*/
 		protected $fillable = 
     [   
-        'vin',
-		'image',
-        'brand-model',
-        'body_style',
-        'color',
+        'partID',
+        'image',
+        'part_name',
+        'compatibility',
         'price',
         'stock',
-     	'engine_and_transmission',
+
     
     ];
 }

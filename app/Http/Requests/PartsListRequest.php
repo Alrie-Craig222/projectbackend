@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VehicleListRequest extends FormRequest
+class PartsListRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,12 @@ class VehicleListRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'vin' => 'required|string|max:255',
+            'partID' => 'required|string|max:255',
             'image' => 'file|mimes:jpeg,png,gif,webp',
-            'brand-model' => 'required|string|max:255',
-            'body_style' => 'required|string|max:255',
-            'color' => 'required|string|max:255',
+            'part_name' => 'required|string|max:255',
+            'compatibility' => 'required|string|max:255',
             'price' => 'required|integer',
             'stock' => 'required|integer',
-            'engine_and_transmission' => 'required|string|max:255',
         ];
     }
 }

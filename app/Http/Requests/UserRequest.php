@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
         else if(request()->routeIs('user.store')){
             return[
         'name' 	=> 'required|string|max:255',
-        'email'	=> 'required|string|email|unique:App\Models\User, email|max:255',
+        'email'	=> 'required|string|email|unique:App\Models\User,email|max:255',
         'password'	=> 'required|min:8',
         ];
         }
@@ -54,5 +54,17 @@ class UserRequest extends FormRequest
         ];
      }
 
+     else if(request()->routeIs('user.image')){
+        return[
+            'image'		=>'required|image|mimes:jpg,bmp,png|max:2048',
+    
+    ];
+    }
+    else if(request()->routeIs('user.image') || request()->routeIs('profile.image')){
+        return[
+            'image' => 'required|image|mimes:jpg,bmp,png|max:2048',
+        ];
+    }
+    return [];
 }
     }

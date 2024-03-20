@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehiclelist', function (Blueprint $table) {
-            $table->string('vin')->primary();
-            $table->string('brand-model');
-            $table->string('body_style');
-            $table->string('color');
+        Schema::create('partslist', function (Blueprint $table) {
+            $table->string('partID')->primary();
+            $table->string('image')->nullable();
+            $table->string('part_name');
+            $table->string('compatibility');
             $table->string('price');
             $table->string('stock');
-            $table->string('engine');
-            $table->string('transmission');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehiclelist');
+        Schema::dropIfExists('partslist');
     }
 };
