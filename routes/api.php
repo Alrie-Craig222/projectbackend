@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\PartsListController;
+use App\Http\Controllers\Api\BuyerListController;
 use App\Http\Controllers\Api\vehiclelistController;
 
 /*
@@ -73,5 +74,13 @@ Route::controller(PartsListController::class)->group(function (){
 	Route::post('/parts', 		'store');
 	Route::put('/parts/{id}', 	'update');
 	Route::delete('/parts/{id}','destroy');
+});
+
+Route::controller(BuyerListController::class)->group(function (){
+	Route::get('/buyer', 			'index');
+	Route::get('/buyer/{id}', 	'show');
+	Route::post('/buyer', 		'store');
+	Route::put('/buyer/{id}', 	'update');
+	Route::delete('/buyer/{id}','destroy');
 });
 });

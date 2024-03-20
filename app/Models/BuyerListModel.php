@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PartsListModel extends Model
+class BuyerListModel extends Model
 {
     use HasFactory;
 
@@ -14,14 +14,14 @@ class PartsListModel extends Model
 		*
 		*@var string
 		*/
-		protected $table = 'partslist';
+		protected $table = 'buyerlist';
 		
 		/**
 		*The primary key associated with the model
 		*
 		*@var string
 		*/
-		protected $primaryKey = 'partID';
+		protected $primaryKey = 'buyerID';
 		public $incrementing = false;
 
 		/**
@@ -31,12 +31,14 @@ class PartsListModel extends Model
 		*/
 		protected $fillable = 
     [   
-        'partID',
-        'image',
-        'part_name',
-        'compatibility',
-        'price',
-        'stock',
+        'buyerID',
+        'Picture',
+        'name',
+        'address',
+        'phone_number',
+        'gender',
+        'annual_income',
+        'buyer_category',
 
     
     ];

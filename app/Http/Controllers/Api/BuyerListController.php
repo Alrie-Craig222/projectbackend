@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PartsListRequest;
+use App\Http\Requests\BuyerListRequest;
 use Illuminate\Http\Request;
-use App\Models\PartsListModel;
+use App\Models\BuyerListModel;
 
-
-class PartsListController extends Controller
+class BuyerListController extends Controller
 {
-/**
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return 	PartsListModel::all();
+        return 	BuyerListModel::all();
     }
 
     /**
@@ -29,13 +28,13 @@ class PartsListController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PartsListRequest $request)
+    public function store(BuyerListRequest $request)
     {
             //Retrieve the validated input data...
 	    $validated = $request->validated();
 
-	    $partsItem=PartsListModel::create($validated);
-	    return $partsItem;
+	    $buyerItem=BuyerListModel::create($validated);
+	    return $buyerItem;
 }
 
     /**
@@ -43,7 +42,7 @@ class PartsListController extends Controller
      */
      public function show(string $partID)
     {
-         return PartsListModel::findOrfail($partID);
+         return BuyerListModel::findOrfail($partID);
 
     }
 
@@ -58,14 +57,14 @@ class PartsListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PartsListRequest $request, string $id)
+    public function update(BuyerListRequest $request, string $id)
     {
         $validated = $request->validated();
 	
-        $partsItem = PartsListModel::findOrFail($id);
-        $partsItem->update($validated);
+        $buyerItem = BuyerListModel::findOrFail($id);
+        $buyerItem->update($validated);
     
-    return $partsItem;
+    return $buyerItem;
     }
 
     /**
@@ -73,9 +72,9 @@ class PartsListController extends Controller
      */
     public function destroy(string $id)
     {
-        $partsItem=PartsListModel::findorFail($id);
-        $partsItem->delete();
+        $buyerItem=BuyerListModel::findorFail($id);
+        $buyerItem->delete();
     
-        return $partsItem;
+        return $buyerItem;
     }
 }
