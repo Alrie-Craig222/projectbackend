@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -118,5 +119,19 @@ class UserController extends Controller
 
         $user->save();
         return $user;
+    }
+    public function login(Request $request)
+    {
+        // Retrieve user based on email
+        $user = User::where('email', $request->input('email'))->first();
+
+        // Check if user exists and password is correct
+        if ($user && Hash::check($request->input('password'), $user->password)) {
+            // User authenticated successfully
+            return response()->json(['message' => 'Login successful', 'user' => $user], 200);
+        } else {
+            // Invalid credentials
+            return response()->json(['message' => 'Invalid email or password'], 401);
+        }
     }
 }
